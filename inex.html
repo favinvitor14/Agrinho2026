@@ -1,117 +1,216 @@
-<html>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agro Forte, Futuro Sustentável</title>
     <style>
-        /* Estilos Gerais */
+        /* Estilos Gerais e Tipografia Acadêmica/Tradicional */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #f4f7f4;
-            color: #333;
+            background-color: #f7f5f0; /* Fundo off-white clássico (estilo papel) */
+            color: #1a241e;
+            font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
         }
 
-        /* Cabeçalho */
+        /* Barra de Topo Institucional */
+        .top-bar {
+            background-color: #0b2516;
+            height: 10px;
+            border-bottom: 3px solid #c5a059; /* Detalhe em dourado fosco tradicional */
+        }
+
+        /* Cabeçalho Tradicional */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            color: #fff;
+            background-color: #fff;
             text-align: center;
-            padding: 100px 20px;
+            padding: 50px 20px;
+            border-bottom: 1px solid #d3cbd0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
         }
 
         header h1 {
             font-size: 3rem;
+            color: #0b2516;
+            font-weight: bold;
+            letter-spacing: 1px;
             margin-bottom: 10px;
-            color: #4caf50;
         }
 
         header p {
             font-size: 1.2rem;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+            color: #555;
+            font-style: italic;
         }
 
         /* Container Principal */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
         /* Seção de Introdução */
         .intro {
+            background-color: #fff;
+            border: 1px solid #dcd6cd;
+            padding: 30px;
+            margin-bottom: 40px;
             text-align: center;
-            margin-bottom: 50px;
+            position: relative;
+        }
+
+        /* Detalhe visual de moldura clássica nas pontas */
+        .intro::before {
+            content: "";
+            position: absolute;
+            top: 5px; left: 5px; right: 5px; bottom: 5px;
+            border: 1px solid #e8e2d8;
+            pointer-events: none;
         }
 
         .intro h2 {
-            color: #2e7d32;
+            color: #0b2516;
+            font-size: 2rem;
             margin-bottom: 15px;
         }
 
-        /* Seção de Dúvidas (FAQ) */
-        .faq-section {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .intro p {
+            font-size: 1.15rem;
+            color: #333;
         }
 
+        /* Seção de Abas Estilo Fichário Tradicional */
         .faq-section h2 {
-            color: #2e7d32;
+            color: #0b2516;
+            font-size: 1.8rem;
             margin-bottom: 25px;
             text-align: center;
-            border-bottom: 2px solid #e0e0e0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Abas Horizontais (Padrão de Portais Clássicos) */
+        .tab-menu {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #0b2516;
+            gap: 4px;
+        }
+
+        .tab-btn {
+            background-color: #e3ded5;
+            color: #444;
+            border: 1px solid #ccc5b9;
+            border-bottom: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            cursor: pointer;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: #d6cfc2;
+            color: #0b2516;
+        }
+
+        /* Aba Ativa integrada ao painel de conteúdo */
+        .tab-btn.active {
+            background-color: #0b2516;
+            color: #fff;
+            border-color: #0b2516;
+            padding-bottom: 14px;
+            margin-bottom: -2px;
+            z-index: 2;
+        }
+
+        /* Caixa de Conteúdo Robusta */
+        .tab-content-wrapper {
+            background-color: #fff;
+            border: 2px solid #0b2516;
+            border-top: none;
+            padding: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            min-height: 250px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h3 {
+            color: #0b2516;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            border-bottom: 1px double #ccc5b9;
             padding-bottom: 10px;
         }
 
-        .faq-item {
-            margin-bottom: 25px;
-        }
-
-        .faq-item h3 {
-            color: #388e3c;
-            font-size: 1.15rem;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-
-        .faq-item h3::before {
-            content: "🌱";
-            margin-right: 10px;
-        }
-
-        .faq-item p {
-            color: #555;
-            padding-left: 28px;
+        .tab-content p {
+            color: #222;
             text-align: justify;
+            font-size: 1.15rem;
+            line-height: 1.8;
         }
 
-        /* Rodapé */
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .tab-menu {
+                flex-direction: column;
+                border-bottom: none;
+            }
+            .tab-btn {
+                border-bottom: 1px solid #ccc5b9;
+                border-radius: 4px;
+            }
+            .tab-btn.active {
+                margin-bottom: 0;
+                padding-bottom: 12px;
+            }
+            .tab-content-wrapper {
+                border-top: 2px solid #0b2516;
+                padding: 20px;
+            }
+        }
+
+        /* Rodapé Institucional */
         footer {
-            background-color: #2e7d32;
+            background-color: #0b2516;
             color: #fff;
             text-align: center;
-            padding: 20px;
-            margin-top: 60px;
-            font-size: 0.9rem;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 5px solid #c5a059;
+            font-size: 0.95rem;
+        }
+        
+        footer p {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
+    <div class="top-bar"></div>
+
     <header>
-        <h1>Agro Forte</h1>
+        <h1>AGRO FORTE</h1>
         <p>Desmistificando o agronegócio e construindo um futuro sustentável através do conhecimento.</p>
     </header>
 
@@ -123,36 +222,91 @@
         </section>
 
         <section class="faq-section">
-            <h2>Perguntas Frequentes</h2>
+            <h2>Acervo de Informações e Diretrizes</h2>
 
-            <div class="faq-item">
-                <h3>O que diferencia o agronegócio comum do sustentável?</h3>
-                <p>O agronegócio sustentável busca equilibrar a alta produção de alimentos com a preservação ambiental e o desenvolvimento social. Isso envolve o uso de técnicas como a rotação de culturas, o plantio direto, a redução do uso de defensivos químicos por meio do controle biológico e a preservação de nascentes e florestas nativas.</p>
+            <div class="tab-menu">
+                <button class="tab-btn active" onclick="openTab(event, 'tab1')">Diferencial</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab2')">Tecnologia</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab3')">Sistema ILPF</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab4')">Impacto Urbano</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab5')">Bioinsumos</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab6')">Crédito Verde</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab7')">Rastreabilidade</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab8')">Recursos Hídricos</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab9')">Energia</button>
             </div>
 
-            <div class="faq-item">
-                <h3>Como a tecnologia ajuda a preservar o meio ambiente no campo?</h3>
-                <p>A tecnologia é uma grande aliada através da agricultura de precisão. Drones, satélites e sensores em tratores permitem mapear o solo detalhadamente. Assim, o produtor aplica água, fertilizantes ou defensivos apenas no local exato e na quantidade estritamente necessária, evitando desperdícios e contaminações.</p>
-            </div>
+            <div class="tab-content-wrapper">
+                <div id="tab1" class="tab-content active">
+                    <h3>O que diferencia o agronegócio comum do sustentável?</h3>
+                    <p>O agronegócio sustentável busca equilibrar a alta produção de alimentos com a preservação ambiental e o desenvolvimento social. Isso envolve o uso de técnicas como a rotação de culturas, o plantio direto, a redução do uso de defensivos químicos por meio do controle biológico e a preservação de nascentes e florestas nativas.</p>
+                </div>
 
-            <div class="faq-item">
-                <h3>O que é a Integração Lavoura-Pecuária-Floresta (ILPF)?</h3>
-                <p>A ILPF é uma estratégia que integra diferentes sistemas produtivos (grãos, carne/leite e madeira) em uma mesma área. Essa prática otimiza o uso da terra, melhora a qualidade do solo, aumenta a biodiversidade e ajuda a neutralizar as emissões de gases de efeito estufa através do plantio de árvores.</p>
-            </div>
+                <div id="tab2" class="tab-content">
+                    <h3>Como a tecnologia ajuda a preservar o meio ambiente no campo?</h3>
+                    <p>A tecnologia é uma grande aliada através da agricultura de precisão. Drones, satélites e sensores em tratores permitem mapear o solo detalhadamente. Assim, o produtor aplica água, fertilizantes ou defensivos apenas no local exato e na quantidade estritamente necessária, evitando desperdícios e contaminações.</p>
+                </div>
 
-            <div class="faq-item">
-                <h3>Como o cidadão urbano se beneficia do Agro Sustentável?</h3>
-                <p>Os benefícios vão além do prato de comida. O agro sustentável garante a segurança alimentar a longo prazo, protege os recursos hídricos que abastecem as cidades, reduz a pegada de carbono do país e gera empregos verdes, impulsionando a economia de forma ética.</p>
+                <div id="tab3" class="tab-content">
+                    <h3>O que é a Integração Lavoura-Pecuária-Floresta (ILPF)?</h3>
+                    <p>A ILPF é uma estratégia que integra diferentes sistemas produtivos (grãos, carne/leite e madeira) em uma mesma área. Essa prática otimiza o uso da terra, melhora a qualidade do solo, aumenta a biodiversidade e ajuda a neutralizar as emissões de gases de efeito estufa através do plantio de árvores.</p>
+                </div>
+
+                <div id="tab4" class="tab-content">
+                    <h3>Como o cidadão urbano se beneficia do Agro Sustentável?</h3>
+                    <p>Os benefícios vão além do prato de comida. O agro sustentável garante a segurança alimentar a longo prazo, protege os recursos hídricos que abastecem as cidades, reduz a pegada de carbono do país e gera empregos verdes, impulsionando a economia de forma ética.</p>
+                </div>
+
+                <div id="tab5" class="tab-content">
+                    <h3>Qual é o papel dos bioinsumos na transição ecológica?</h3>
+                    <p>Os bioinsumos são produtos de origem vegetal, animal ou microbiana utilizados para fertilizar o solo ou combater pragas. Eles substituem ou reduzem drasticamente a dependência de defensivos químicos e fertilizantes sintéticos de base fóssil, promovendo a regeneração do solo e alimentos mais limpos.</p>
+                </div>
+
+                <div id="tab6" class="tab-content">
+                    <h3>Como funcionam o Crédito Verde e o Financiamento Sustentável?</h3>
+                    <p>Bancos e fundos de investimento mundiais oferecem taxas de juros mais baixas e incentivos financeiros para produtores que adotam práticas comprovadamente ecológicas. Programas como o Plano ABC+ no Brasil premiam quem reduz a emissão de carbono, transformando a preservação ambiental em um ativo financeiro rentável.</p>
+                </div>
+
+                <div id="tab7" class="tab-content">
+                    <h3>Por que a rastreabilidade do alimento é tão importante?</h3>
+                    <p>A rastreabilidade permite monitorar toda a jornada do alimento, desde a semente plantada até a prateleira do supermercado. Utilizando tecnologias como QR Codes e Blockchain, o consumidor final pode verificar se aquele produto veio de uma área livre de desmatamento ilegal e se respeitou as leis trabalhistas.</p>
+                </div>
+
+                <div id="tab8" class="tab-content">
+                    <h3>Como o agro gerencia e economiza recursos hídricos?</h3>
+                    <p>Longe de apenas gastar água, o agro sustentável investe pesado em sistemas de irrigação inteligente, como o gotejamento subsuperficial, que direciona a água direto para a raiz e reduz a evaporação. Além disso, a conservação de Matas Ciliares protege os rios que garantem o ciclo de chuvas regionais.</p>
+                </div>
+
+                <div id="tab9" class="tab-content">
+                    <h3>De que forma o campo se tornou produtor de energia limpa?</h3>
+                    <p>As propriedades rurais estão liderando a transição energética através do uso de biomassa (como o bagaço da cana), produção de biogás a partir de resíduos animais e instalação de painéis solares em áreas não cultiváveis. O campo deixou de ser apenas consumidor e passou a abastecer a matriz elétrica nacional com energia renovável.</p>
+                </div>
             </div>
 
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2026 Agro Forte, Futuro Sustentável. Todos os direitos reservados. Feito por Vitor Rafael Favin.
-        </p>
+        <p>&copy; 2026 Agro Forte, Futuro Sustentável. Todos os direitos reservados.</p>
+        <p style="margin-top: 5px; font-size: 0.85rem;">Desenvolvido por Vitor Rafael Favin.</p>
     </footer>
 
+    <script>
+        function openTab(evt, tabId) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            const tabButtons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
 </body>
-</html>
 </html>
